@@ -14,7 +14,7 @@
             {% endif %}
                 <div class="col-md-4">
                     <a href="#" class="thumbnail">
-                        <img alt="{{ image.name }}" src="{{ image.name }}" data-holder-rendered="true" style="height: 180px; width: 100%; display: block;">
+                        <img alt="{{ image.name }}" src="/images/{{ image.name }}" data-holder-rendered="true" style="height: 180px; width: 100%; display: block;">
                     </a>
                 </div>
             {% if loop.index % 3 == 0 %}
@@ -24,12 +24,12 @@
         {% if images|length % 3 != 0 %}
             </div>
         {% endif %}
-        <nav>
+        {#<nav>
             <ul class="pager">
                 <li class="previous"><a href="#"><span aria-hidden="true">&larr;</span> Older</a></li>
                 <li class="next"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
             </ul>
-        </nav>
+        </nav>#}
     </div>
 {% endblock %}
 {% block javascripts %}
