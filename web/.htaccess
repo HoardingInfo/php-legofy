@@ -19,6 +19,11 @@ DirectoryIndex app.php
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
+    RewriteEngine On
+    RewriteBase /
+    RewriteCond %{HTTP_HOST} ^legofy-online\.com [NC]
+    RewriteRule ^(.*)$ http://www.legofy-online.com/$1 [L,R=301]
+
 
     # Determine the RewriteBase automatically and set it as environment variable.
     # If you are using Apache aliases to do mass virtual hosting or installed the
