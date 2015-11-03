@@ -6,8 +6,8 @@ use FOS\UserBundle\Model\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity(repositoryClass="AppBundle\Repository\ImageRepository")
- * @ORM\Table(name="Image")
+ * @ORM\Entity()
+ * @ORM\Table(name="image")
  */
 class Image
 {
