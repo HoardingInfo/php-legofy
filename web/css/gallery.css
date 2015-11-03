@@ -1,0 +1,22 @@
+
+.inner.cover {
+    padding-top: 50px;
+}
+
+/*
+ * Affix and center
+ */
+
+@media (min-width: 768px) {
+    /* Pull out the header and footer */
+    .masthead {
+        position: relative;
+    }
+    .mastfoot {
+        position: relative;
+    }
+    /* Start the vertical centering */
+    .site-wrapper-inner {
+        vertical-align: top;
+    }
+}
