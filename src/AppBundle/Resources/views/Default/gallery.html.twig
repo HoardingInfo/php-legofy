@@ -24,12 +24,14 @@
         {% if images|length % 3 != 0 %}
             </div>
         {% endif %}
-        {#<nav>
+        <nav>
             <ul class="pager">
-                <li class="previous"><a href="#"><span aria-hidden="true">&larr;</span> Older</a></li>
-                <li class="next"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+                {% if prev != 0 %}
+                    <li class="previous"><a href="{{ url('gallery', {'page': prev}) }}"><span aria-hidden="true">&larr;</span> Older</a></li>
+                {% endif %}
+                <li class="next"><a href="{{ url('gallery', {'page': next}) }}">Newer <span aria-hidden="true">&rarr;</span></a></li>
             </ul>
-        </nav>#}
+        </nav>
     </div>
 {% endblock %}
 {% block javascripts %}
