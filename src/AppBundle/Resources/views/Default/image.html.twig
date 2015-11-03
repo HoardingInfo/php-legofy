@@ -7,16 +7,18 @@
     <link rel="stylesheet" href="{{ asset('css/gallery.css') }}">
 {% endblock %}
 {% block body %}
-    <div class="row">
-        <div class="col-md-6">
-            <a href="#" class="thumbnail">
-                <img alt="100%x180" style="height: 360px; width: 100%; display: block;" src="/images/{{ image.name }}" data-holder-rendered="true">
-            </a>
-        </div>
-        <div class="col-md-6">
-            <span class='st_facebook_hcount' displayText='Facebook'></span>
-            <span class='st_twitter_hcount' displayText='Tweet'></span>
-            <span class='st_pinterest_hcount' displayText='Pinterest'></span>
+    <div class="inner cover">
+        <div class="row">
+            <div class="col-md-6">
+                <a href="#" class="thumbnail">
+                    <img alt="100%x180" style="width: 100%; display: block;" src="/images/{{ image.name }}" data-holder-rendered="true">
+                </a>
+            </div>
+            <div class="col-md-6">
+                <span class='st_facebook_hcount' displayText='Facebook'></span>
+                <span class='st_twitter_hcount' displayText='Tweet'></span>
+                <span class='st_pinterest_hcount' displayText='Pinterest'></span>
+            </div>
         </div>
     </div>
 {% endblock %}
