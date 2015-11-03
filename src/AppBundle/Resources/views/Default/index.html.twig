@@ -10,16 +10,20 @@
 {% block body %}
     <div class="inner cover">
         <h1 class="cover-heading">Legofy your images online.</h1>
-        <form action="/file-upload"
-              class="dropzone"
-              id="my-awesome-dropzone">
+        <form action="{{ url('uploadFile') }}" class="dropzone form-inline" id="dropzoneImage">
+            <div class="alert success"></div>
+            <div class="alert alert-danger"></div>
             <div class="dz-message needsclick">
                 Drop files here or click to upload.
             </div>
+            <div class="submit-dropzone">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="allow" checked> Allow legofy to use it in gallery
+                    </label>
+                </div>
+            </div>
         </form>
-        <div class="submit-container">
-            <input type="submit" value="Generate image" class="btn btn-success">
-        </div>
     </div>
 {% endblock %}
 {% block javascripts %}
