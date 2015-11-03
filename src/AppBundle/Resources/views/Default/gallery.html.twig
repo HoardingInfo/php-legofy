@@ -1,0 +1,41 @@
+{% extends "::base.html.twig" %}
+{% block title %}
+    Gallery - Legofy your images online
+{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/extra.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/gallery.css') }}">
+{% endblock %}
+{% block body %}
+    <div class="inner cover">
+        {% include 'AppBundle:Default:ads.html.twig' %}
+        {% for image in images %}
+            {% if loop.index == 1 or loop.index % 3 == 0 %}
+            <div class="row">
+            {% endif %}
+                <div class="col-md-4">
+                    <a href="{{ url('image', {'id': image.id, 'name': image.name}) }}" class="thumbnail">
+                        <img alt="{{ image.name }}" src="/images/{{ image.name }}" data-holder-rendered="true" style="height: 180px; width: 100%; display: block;">
+                    </a>
+                </div>
+            {% if loop.index % 3 == 0 %}
+                </div>
+            {% endif %}
+        {% endfor %}
+        {% if images|length % 3 != 0 %}
+            </div>
+        {% endif %}
+        <nav>
+            <ul class="pager">
+                {% if prev != 0 %}
+                    <li class="previous"><a href="{{ url('gallery', {'page': prev}) }}"><span aria-hidden="true">&larr;</span> Older</a></li>
+                {% endif %}
+                {% if images|length == 20 %}
+                    <li class="next"><a href="{{ url('gallery', {'page': next}) }}">Newer <span aria-hidden="true">&rarr;</span></a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+{% endblock %}
+{% block javascripts %}
+{% endblock %}

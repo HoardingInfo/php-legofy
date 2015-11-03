@@ -1,0 +1,39 @@
+
+.inner.cover {
+    padding-top: 50px;
+}
+
+.ads, .ads-mobile{
+    margin-bottom: 50px;
+}
+
+.ads-mobile {
+    display: none;
+}
+
+/*
+ * Affix and center
+ */
+
+@media (max-width: 768px) {
+    .ads {
+        display: none;
+    }
+    .ads-mobile {
+        display: block;
+    }
+}
+
+@media (min-width: 768px) {
+    /* Pull out the header and footer */
+    .masthead {
+        position: relative;
+    }
+    .mastfoot {
+        position: relative;
+    }
+    /* Start the vertical centering */
+    .site-wrapper-inner {
+        vertical-align: top;
+    }
+}

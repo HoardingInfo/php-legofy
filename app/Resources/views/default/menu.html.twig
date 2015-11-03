@@ -3,9 +3,8 @@
         <h3 class="masthead-brand">Legofy online</h3>
         <nav>
             <ul class="nav masthead-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">Galery</a></li>
-                <li><a href="#">Contact</a></li>
+                <li {% if menuActive == 'home' %}class="active"{% endif %}><a href="{{ url('homepage') }}">Home</a></li>
+                <li {% if menuActive == 'gallery' %}class="active"{% endif %}><a href="{{ url('gallery') }}">Gallery</a></li>
             </ul>
         </nav>
     </div>
