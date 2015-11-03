@@ -30,7 +30,9 @@
                 {% if prev != 0 %}
                     <li class="previous"><a href="{{ url('gallery', {'page': prev}) }}"><span aria-hidden="true">&larr;</span> Older</a></li>
                 {% endif %}
-                <li class="next"><a href="{{ url('gallery', {'page': next}) }}">Newer <span aria-hidden="true">&rarr;</span></a></li>
+                {% if images|length == 20 %}
+                    <li class="next"><a href="{{ url('gallery', {'page': next}) }}">Newer <span aria-hidden="true">&rarr;</span></a></li>
+                {% endif %}
             </ul>
         </nav>
     </div>
