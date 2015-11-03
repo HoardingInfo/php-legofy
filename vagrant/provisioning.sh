@@ -41,7 +41,7 @@ git clone https://github.com/JuanPotato/Legofy.git
 cd Legofy
 python setup.py install
 
-cd /var/wwW/
+cd /var/www/
 mkdir .python-eggs
 chown www-data:www-data -R .python-eggs
 
