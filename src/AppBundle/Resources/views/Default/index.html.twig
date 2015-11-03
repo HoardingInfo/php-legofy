@@ -1,0 +1,29 @@
+{% extends "::base.html.twig" %}
+{% block title %}
+    Home - Legofy your images online
+{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/Legofy/css/extra.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/Legofy/css/dropzone.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/Legofy/css/home.css') }}">
+{% endblock %}
+{% block body %}
+    <div class="inner cover">
+        <h1 class="cover-heading">Legofy your images online.</h1>
+        <form action="/file-upload"
+              class="dropzone"
+              id="my-awesome-dropzone">
+            <div class="dz-message needsclick">
+                Drop files here or click to upload.
+            </div>
+        </form>
+        <div class="submit-container">
+            <input type="submit" value="Generate image" class="btn btn-success">
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('bundles/Legofy/js/dropzone.js') }}"></script>
+    <script src="{{ asset('bundles/Legofy/js/particles.js') }}"></script>
+    <script src="{{ asset('bundles/Legofy/js/home.js') }}"></script>
+{% endblock %}
