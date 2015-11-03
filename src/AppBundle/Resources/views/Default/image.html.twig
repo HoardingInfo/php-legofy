@@ -10,15 +10,17 @@
     <div class="inner cover">
         {% include 'AppBundle:Default:ads.html.twig' %}
         <div class="row">
-            <div class="col-md-6">
-                <a href="#" class="thumbnail">
-                    <img alt="100%x180" style="width: 100%; display: block;" src="/images/{{ image.name }}" data-holder-rendered="true">
-                </a>
-            </div>
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <span class='st_facebook_hcount' displayText='Facebook'></span>
                 <span class='st_twitter_hcount' displayText='Tweet'></span>
                 <span class='st_pinterest_hcount' displayText='Pinterest'></span>
+                <br>
+                <br>
+            </div>
+            <div class="col-md-12">
+                <a href="#" class="thumbnail">
+                    <img alt="100%x180" style="width: 100%; display: block;" src="/images/{{ image.name }}" data-holder-rendered="true">
+                </a>
             </div>
         </div>
     </div>
