@@ -51,7 +51,7 @@ class DefaultController extends Controller
         $em->flush();
 
         return [
-            'imageName' => $file->getBasename() . '.png'
+            'image' => $image
         ];
     }
 
@@ -65,5 +65,17 @@ class DefaultController extends Controller
             ->getRepository('AppBundle:Image');
         $images = $repository->findBy(['private' => false]);
         return ['menuActive' => 'gallery', 'images' => $images];
+    }
+
+    /**
+     * @Route("/image/{id}/{name}", name="image", requirements={"id" = "\d+"})
+     * @Template()
+     */
+    public function imageAction($id, $name = null)
+    {
+        $repository = $this->getDoctrine()
+            ->getRepository('AppBundle:Image');
+        $image = $repository->find($id);
+        return ['menuActive' => '', 'image' => $image];
     }
 }
