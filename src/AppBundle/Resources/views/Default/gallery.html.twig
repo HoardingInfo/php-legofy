@@ -10,7 +10,7 @@
     <div class="inner cover">
         {% include 'AppBundle:Default:ads.html.twig' %}
         {% for image in images %}
-            {% if loop.index == 1 or loop.index % 5 == 0 %}
+            {% if loop.index == 1 or loop.index0 % 4 == 0 %}
             <div class="row">
             {% endif %}
                 <div class="col-xs-6 col-md-3">
@@ -18,7 +18,7 @@
                         <img alt="{{ image.name }}" src="/images/thumbnails/{{ image.name }}" data-holder-rendered="true" style="width: 100%; display: block;">
                     </a>
                 </div>
-            {% if loop.index % 4 == 0 %}
+            {% if loop.index0 != 0 and loop.index % 4 == 0 %}
                 </div>
             {% endif %}
         {% endfor %}
