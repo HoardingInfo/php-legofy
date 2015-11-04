@@ -78,12 +78,12 @@ class DefaultController extends Controller
      */
     public function galleryAction($page = 1)
     {
-        $offset = 18 * ($page-1);
+        $offset = 20 * ($page-1);
         $prev = $page - 1;
         $next = $page + 1;
         $repository = $this->getDoctrine()
             ->getRepository('AppBundle:Image');
-        $images = $repository->findBy(['private' => false], ['creationDate' => 'DESC'], 18, $offset);
+        $images = $repository->findBy(['private' => false], ['creationDate' => 'DESC'], 20, $offset);
         return ['menuActive' => 'gallery', 'images' => $images, 'page' => $page, 'prev' => $prev, 'next' => $next];
     }
 

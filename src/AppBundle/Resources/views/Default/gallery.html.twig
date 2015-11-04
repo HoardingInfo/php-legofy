@@ -10,7 +10,7 @@
     <div class="inner cover">
         {% include 'AppBundle:Default:ads.html.twig' %}
         {% for image in images %}
-            {% if loop.index == 1 or loop.index % 4 == 0 %}
+            {% if loop.index == 1 or loop.index % 5 == 0 %}
             <div class="row">
             {% endif %}
                 <div class="col-xs-6 col-md-3">
@@ -30,7 +30,7 @@
                 {% if prev != 0 %}
                     <li class="previous"><a href="{{ url('gallery', {'page': prev}) }}"><span aria-hidden="true">&larr;</span> Older</a></li>
                 {% endif %}
-                {% if images|length == 18 %}
+                {% if images|length == 20 %}
                     <li class="next"><a href="{{ url('gallery', {'page': next}) }}">Newer <span aria-hidden="true">&rarr;</span></a></li>
                 {% endif %}
             </ul>
