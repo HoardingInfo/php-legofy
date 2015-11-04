@@ -42,7 +42,7 @@ class DefaultController extends Controller
         }
 
         $image = new Image();
-        $image->setPrivate($allow ? false : true)
+        $image->setPrivate(false)
             ->setName($imageName)
             ->setCreationDate(new \DateTime());
 

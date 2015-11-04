@@ -1,6 +1,11 @@
 .cover-heading {
     margin-bottom: 50px;
 }
+
+.inner.cover {
+    padding-top: 100px;
+}
+
 .dropzone {
     min-height: 250px;
     padding: 20px 20px;
@@ -43,4 +48,11 @@
     right: 0px;
     bottom: 10px;
     color: #636363;
+}
+
+.note.needsclick {
+    font-size: 0.8em;
+    font-weight: 200;
+    display: block;
+    margin-top: 1.4rem;
 }

@@ -10,11 +10,13 @@
 {% block body %}
     <div class="inner cover">
         <h1 class="cover-heading">Legofy your images online.</h1>
+        <div class="hide showresult"></div>
         <form action="{{ url('uploadFile') }}" class="dropzone form-inline" id="dropzoneImage">
-            <div class="alert success"></div>
             <div class="alert alert-danger"></div>
             <div class="dz-message needsclick">
                 Drop files here or click to upload.
+                <br>
+                <span class="note needsclick">(<strong>First</strong> check the box if you want your picture to be published in gallery)</span>
             </div>
             <div class="submit-dropzone">
                 <div class="checkbox">

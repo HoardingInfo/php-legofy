@@ -10,9 +10,9 @@ $(document).ready(function() {
             else { done('Not allowed format.'); }
         },
         complete: function(data) {
-            console.log(data);
             if (data.xhr.status == 200) {
-                $('.alert.success').html(data.xhr.response).show();
+                $('#dropzoneImage').hide();
+                $('.showresult').html(data.xhr.response).removeClass('hide');
             } else {
                 $('.alert.alert-danger').html(data.xhr.response).show();
             }
