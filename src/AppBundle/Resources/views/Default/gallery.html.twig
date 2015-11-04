@@ -13,9 +13,9 @@
             {% if loop.index == 1 or loop.index % 3 == 0 %}
             <div class="row">
             {% endif %}
-                <div class="col-md-4">
+                <div class="col-xs-6 col-md-4">
                     <a href="{{ url('image', {'id': image.id, 'name': image.name}) }}" class="thumbnail">
-                        <img alt="{{ image.name }}" src="/images/{{ image.name }}" data-holder-rendered="true" style="height: 180px; width: 100%; display: block;">
+                        <img alt="{{ image.name }}" src="/images/thumbnails/{{ image.name }}" data-holder-rendered="true" style="width: 100%; display: block;">
                     </a>
                 </div>
             {% if loop.index % 3 == 0 %}

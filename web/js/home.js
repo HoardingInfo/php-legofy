@@ -11,8 +11,8 @@ $(document).ready(function() {
         },
         complete: function(data) {
             if (data.xhr.status == 200) {
-                $('#dropzoneImage').hide();
-                $('.showresult').html(data.xhr.response).removeClass('hide');
+                var response = $.parseJSON(data.xhr.response);
+                window.location.href = response.url;
             } else {
                 $('.alert.alert-danger').html(data.xhr.response).show();
             }

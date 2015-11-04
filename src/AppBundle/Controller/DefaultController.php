@@ -3,6 +3,9 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Image;
+use Imagine\Image\Box;
+use Imagine\Image\Point;
+use Imagine\Imagick\Imagine;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -41,6 +44,20 @@ class DefaultController extends Controller
             throw new ProcessFailedException($process);
         }
 
+        $imagine = new Imagine();
+        $imageFile = $imagine->open(sprintf('%s/../../../web/images/%s', __DIR__, $imageName));
+        $box = $imageFile->getSize();
+        if ($box->getHeight() > $box->getWidth()) {
+            $imageFile->resize(new Box(400, ($box->getHeight() * (400 / $box->getWidth()))))
+                ->crop(new Point(0, 0), new Box(400, 400));
+        } else {
+            $newWidth = $box->getWidth() * (400 / $box->getHeight());
+            $imageFile->resize(new Box($newWidth, 400))
+                ->crop(new Point(($newWidth - 400) / 2, 0), new Box(400, 400));
+        }
+
+        $imageFile->save(sprintf('%s/../../../web/images/thumbnails/%s', __DIR__, $imageName));
+
         $image = new Image();
         $image->setPrivate($allow ? false : true)
             ->setName($imageName)
@@ -50,9 +67,9 @@ class DefaultController extends Controller
         $em->persist($image);
         $em->flush();
 
-        return [
-            'image' => $image
-        ];
+        return new JsonResponse([
+            'url' => $this->generateUrl('image', ['id' => $image->getId(), 'name' => $image->getName()])
+        ]);
     }
 
     /**
