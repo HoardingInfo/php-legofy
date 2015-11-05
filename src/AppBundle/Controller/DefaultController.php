@@ -98,4 +98,13 @@ class DefaultController extends Controller
         $image = $repository->find($id);
         return ['menuActive' => '', 'image' => $image];
     }
+
+    /**
+     * @Route("/videos/{page}", name="videos")
+     * @Template()
+     */
+    public function videosAction($page = 1)
+    {
+        return ['menuActive' => 'videos'];
+    }
 }

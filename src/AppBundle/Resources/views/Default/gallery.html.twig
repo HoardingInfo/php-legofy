@@ -28,10 +28,10 @@
         <nav>
             <ul class="pager">
                 {% if prev != 0 %}
-                    <li class="previous"><a href="{{ url('gallery', {'page': prev}) }}"><span aria-hidden="true">&larr;</span> Older</a></li>
+                    <li class="previous"><a href="{{ url('gallery', {'page': prev}) }}"><span aria-hidden="true">&larr;</span> Newer</a></li>
                 {% endif %}
                 {% if images|length == 20 %}
-                    <li class="next"><a href="{{ url('gallery', {'page': next}) }}">Newer <span aria-hidden="true">&rarr;</span></a></li>
+                    <li class="next"><a href="{{ url('gallery', {'page': next}) }}">Older <span aria-hidden="true">&rarr;</span></a></li>
                 {% endif %}
             </ul>
         </nav>
