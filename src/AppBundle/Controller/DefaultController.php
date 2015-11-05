@@ -100,10 +100,10 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/videos/{page}", name="videos")
+     * @Route("/videos-legofy", name="videos-legofy")
      * @Template()
      */
-    public function videosAction($page = 1)
+    public function videosAction()
     {
         return ['menuActive' => 'videos'];
     }
