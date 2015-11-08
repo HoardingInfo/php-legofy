@@ -1,11 +1,20 @@
 $(document).ready(function() {
+
+    var is_chrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
     var canvas = $("canvas")[0];
     var video = $('video')[0];
+
+    if (!is_chrome) {
+        $('.compatible').hide();
+        $('.not-compatible').show();
+        return;
+    }
+
     var ctx = canvas.getContext("2d");
 
     video.addEventListener('play', function(){
         $(canvas).show();
-        var cw = Math.floor(canvas.clientWidth);
+        var cw = Math.floor(video.clientWidth);
         var ch = Math.floor(video.clientHeight);
         legofy(this, ctx, cw, ch);
     },false);

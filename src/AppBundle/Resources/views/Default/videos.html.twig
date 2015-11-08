@@ -9,21 +9,29 @@
 {% endblock %}
 {% block body %}
     <div class="inner cover">
-        <ul class="share-buttons">
-            <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ app.request.uri|url_encode }}&t=" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><img src="/images/flat_web_icon_set/color/Facebook.png"></a></li>
-            <li><a href="https://twitter.com/intent/tweet?source={{ app.request.uri|url_encode }}&text={{ app.request.uri|url_encode }}" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20'  + encodeURIComponent(document.URL)); return false;"><img src="/images/flat_web_icon_set/color/Twitter.png"></a></li>
-            <li><a href="https://plus.google.com/share?url={{ app.request.uri|url_encode }}" target="_blank" title="Share on Google+" onclick="window.open('https://plus.google.com/share?url=' + encodeURIComponent(document.URL)); return false;"><img src="/images/flat_web_icon_set/color/Google+.png"></a></li>
-            <li><a href="http://www.tumblr.com/share?v=3&u={{ app.request.uri|url_encode }}&t=&s=" target="_blank" title="Post to Tumblr" onclick="window.open('http://www.tumblr.com/share?v=3&u=' + encodeURIComponent(document.URL) + '&t=' +  encodeURIComponent(document.title)); return false;"><img src="/images/flat_web_icon_set/color/Tumblr.png"></a></li>
-            <li><a href="http://pinterest.com/pin/create/button/?url={{ app.request.uri|url_encode }}&description=" target="_blank" title="Pin it" onclick="window.open('http://pinterest.com/pin/create/button/?url=' + encodeURIComponent(document.URL) + '&description=' +  encodeURIComponent(document.title)); return false;"><img src="/images/flat_web_icon_set/color/Pinterest.png"></a></li>
-            <li><a href="http://www.reddit.com/submit?url={{ app.request.uri|url_encode }}&title=" target="_blank" title="Submit to Reddit" onclick="window.open('http://www.reddit.com/submit?url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;"><img src="/images/flat_web_icon_set/color/Reddit.png"></a></li>
-            <li><a href="http://www.linkedin.com/shareArticle?mini=true&url={{ app.request.uri|url_encode }}&title=&summary=&source={{ app.request.uri|url_encode }}" target="_blank" title="Share on LinkedIn" onclick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;"><img src="/images/flat_web_icon_set/color/LinkedIn.png"></a></li>
-        </ul>
-        <br>
-        <canvas id="video-output"></canvas>
-        <video style="width: 100%" controls loop>
-            <source src="/videos/video_big_bunny.webm" type="video/webm">
-            <source src="/videos/video_big_bunny.ogv" type="video/ogv">
-        </video>
+        <div class="compatible">
+            <ul class="share-buttons">
+                <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ app.request.uri|url_encode }}&t=" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><img src="/images/flat_web_icon_set/color/Facebook.png"></a></li>
+                <li><a href="https://twitter.com/intent/tweet?source={{ app.request.uri|url_encode }}&text={{ app.request.uri|url_encode }}" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20'  + encodeURIComponent(document.URL)); return false;"><img src="/images/flat_web_icon_set/color/Twitter.png"></a></li>
+                <li><a href="https://plus.google.com/share?url={{ app.request.uri|url_encode }}" target="_blank" title="Share on Google+" onclick="window.open('https://plus.google.com/share?url=' + encodeURIComponent(document.URL)); return false;"><img src="/images/flat_web_icon_set/color/Google+.png"></a></li>
+                <li><a href="http://www.tumblr.com/share?v=3&u={{ app.request.uri|url_encode }}&t=&s=" target="_blank" title="Post to Tumblr" onclick="window.open('http://www.tumblr.com/share?v=3&u=' + encodeURIComponent(document.URL) + '&t=' +  encodeURIComponent(document.title)); return false;"><img src="/images/flat_web_icon_set/color/Tumblr.png"></a></li>
+                <li><a href="http://pinterest.com/pin/create/button/?url={{ app.request.uri|url_encode }}&description=" target="_blank" title="Pin it" onclick="window.open('http://pinterest.com/pin/create/button/?url=' + encodeURIComponent(document.URL) + '&description=' +  encodeURIComponent(document.title)); return false;"><img src="/images/flat_web_icon_set/color/Pinterest.png"></a></li>
+                <li><a href="http://www.reddit.com/submit?url={{ app.request.uri|url_encode }}&title=" target="_blank" title="Submit to Reddit" onclick="window.open('http://www.reddit.com/submit?url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;"><img src="/images/flat_web_icon_set/color/Reddit.png"></a></li>
+                <li><a href="http://www.linkedin.com/shareArticle?mini=true&url={{ app.request.uri|url_encode }}&title=&summary=&source={{ app.request.uri|url_encode }}" target="_blank" title="Share on LinkedIn" onclick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;"><img src="/images/flat_web_icon_set/color/LinkedIn.png"></a></li>
+            </ul>
+            <h1 class="cover-heading">Because images are too many statics.</h1>
+            <br>
+            <div class="video-container">
+                <canvas id="video-output"></canvas>
+                <video style="width: 100%" controls loop>
+                    <source src="/videos/video_big_bunny.webm" type="video/webm">
+                    <source src="/videos/video_big_bunny.ogv" type="video/ogv">
+                </video>
+            </div>
+        </div>
+        <div class="not-compatible">
+            <h1 class="cover-heading">This demo requires Chrome 30 or later.</h1>
+        </div>
     </div>
 {% endblock %}
 {% block javascripts %}

@@ -1,4 +1,15 @@
+.video-container {
+    position: relative;
+}
 #video-output {
-    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    display: none;
+}
+
+.not-compatible {
     display: none;
 }
