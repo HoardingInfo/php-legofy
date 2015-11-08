@@ -21,8 +21,8 @@ DirectoryIndex app.php
     RewriteEngine On
     RewriteEngine On
     RewriteBase /
-    RewriteCond %{HTTP_HOST} ^legofy-online\.com [NC]
-    RewriteRule ^(.*)$ http://www.legofy-online.com/$1 [L,R=301]
+    RewriteCond %{HTTP_HOST} ^legofizer\.com [NC]
+    RewriteRule ^(.*)$ http://www.legofizer.com/$1 [L,R=301]
 
 
     # Determine the RewriteBase automatically and set it as environment variable.
