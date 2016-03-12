@@ -22,8 +22,23 @@
             ga('send', 'pageview');
 
         </script>
-        <div id="particles-js"></div>
         <div class="site-wrapper">
+            <div class="oval2top"></div>
+            <div class="oval2bot"></div>
+            <div class="oval1top"></div>
+            <div class="oval1bot"></div>
+            <div class="oval3top"></div>
+            <div class="oval3bot"></div>
+            <div class="oval4top"></div>
+            <div class="oval4bot"></div>
+            <div class="triangle-1"></div>
+            <div class="triangle-2"></div>
+            <div class="triangle-3"></div>
+            <div class="triangle-4"></div>
+            <div class="triangle-5"></div>
+            <div class="box"></div>
+            <div class="triangle-6"></div>
+            <div class="triangle-7"></div>
             <div class="site-wrapper-inner">
                 <div class="cover-container">
                     {% include 'default/menu.html.twig' %}
@@ -34,6 +49,8 @@
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.4.0/trianglify.min.js"></script>
+        <script src="{{ asset('js/main.js') }}"></script>
         {% block javascripts %}{% endblock %}
     </body>
 </html>

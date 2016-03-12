@@ -12,7 +12,7 @@ Vagrant.configure(2) do |config|
     config.vm.usable_port_range = (2200..2299)
     config.vm.network "forwarded_port", guest: 80, host: 2280, auto_correct: true
     config.vm.network "forwarded_port", guest: 3306, host: 2206, auto_correct: true
-    config.vm.network "private_network", ip: "192.168.1.10"
+    config.vm.network "private_network", ip: "192.168.10.10"
 
     config.ssh.forward_agent = true
 

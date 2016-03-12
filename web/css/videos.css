@@ -13,3 +13,7 @@
 .not-compatible {
     display: none;
 }
+
+.cover-container {
+    z-index: 100;
+}

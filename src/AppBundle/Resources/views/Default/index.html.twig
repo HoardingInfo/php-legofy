@@ -21,7 +21,7 @@
             <div class="submit-dropzone">
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox" checked name="allow"> Allow legofy to use it in gallery
+                        <input type="checkbox" name="private"> Make it private
                     </label>
                 </div>
             </div>
@@ -30,6 +30,5 @@
 {% endblock %}
 {% block javascripts %}
     <script src="{{ asset('js/dropzone.js') }}"></script>
-    <script src="{{ asset('js/particles.js') }}"></script>
     <script src="{{ asset('js/home.js') }}"></script>
 {% endblock %}

@@ -3,12 +3,15 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Image;
+use Doctrine\DBAL\Types\DateType;
 use Imagine\Image\Box;
 use Imagine\Image\Point;
 use Imagine\Imagick\Imagine;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -33,7 +36,7 @@ class DefaultController extends Controller
      */
     public function uploadFileAction(Request $request)
     {
-        $allow = $request->get('allow', false);
+        $allow = $request->get('private', false);
         /** @var File $file */
         $file = $request->files->get('file');
         $imageName = uniqid('legofy-online').'.png';
@@ -59,7 +62,7 @@ class DefaultController extends Controller
         $imageFile->save(sprintf('%s/../../../web/images/thumbnails/%s', __DIR__, $imageName));
 
         $image = new Image();
-        $image->setPrivate($allow ? false : true)
+        $image->setPrivate($allow)
             ->setName($imageName)
             ->setCreationDate(new \DateTime());
 
@@ -68,7 +71,7 @@ class DefaultController extends Controller
         $em->flush();
 
         return new JsonResponse([
-            'url' => $this->generateUrl('image', ['id' => $image->getId(), 'name' => $image->getName()])
+            'url' => $this->generateUrl('editImage', ['id' => $image->getId(), 'name' => $image->getName()])
         ]);
     }
 
@@ -97,6 +100,36 @@ class DefaultController extends Controller
             ->getRepository('AppBundle:Image');
         $image = $repository->find($id);
         return ['menuActive' => '', 'image' => $image];
+    }
+
+    /**
+     * @Route("/edit/image/{id}/{name}", name="editImage", requirements={"id" = "\d+"})
+     * @Template()
+     */
+    public function editImageAction($id, $name, Request $request)
+    {
+        $repository = $this->getDoctrine()
+            ->getRepository('AppBundle:Image');
+        $image = $repository->find($id);
+
+        $form = $this->createFormBuilder($image)
+            ->add('tags', 'text')
+            ->add('private', 'checkbox', [
+                'label'    => 'Make it private',
+                'required' => false,
+            ])
+            ->getForm();
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($image);
+            $em->flush();
+            return $this->redirectToRoute('image', ['id' => $image->getId(), 'name' => $image->getName()]);
+        }
+
+        return ['menuActive' => '', 'image' => $image, 'form' => $form->createView()];
     }
 
     /**

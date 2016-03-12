@@ -20,13 +20,12 @@ class Image
     private $id;
 
     /**
-     * @ORM\Column(name="name", type="string", length=100)
-     * @Assert\NotBlank(message="Le nom de la playlist ne peut pas être vide.")
+     * @ORM\Column(type="string", length=100)
      */
     private $name;
 
     /**
-     * @ORM\Column(name="private", type="boolean")
+     * @ORM\Column(type="boolean")
      */
     private $private;
 
@@ -34,6 +33,11 @@ class Image
      * @ORM\Column(type="datetime")
      */
     private $creationDate;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $tags;
 
     /**
      * @return int
@@ -95,5 +99,23 @@ class Image
     public function getCreationDate()
     {
         return $this->creationDate;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTags()
+    {
+        return $this->tags;
+    }
+
+    /**
+     * @param $tags
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->tags = $tags;
+        return $this;
     }
 }

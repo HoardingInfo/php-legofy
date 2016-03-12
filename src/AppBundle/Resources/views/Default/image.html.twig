@@ -23,6 +23,9 @@
                 <br>
             </div>
             <div class="col-md-12">
+                {% if image.tags %}
+                    <h2>{{ image.tags }}</h2>
+                {% endif %}
                 <a href="#" class="thumbnail">
                     <img alt="100%x180" style="width: 100%; display: block;" src="/images/{{ image.name }}" data-holder-rendered="true">
                 </a>
