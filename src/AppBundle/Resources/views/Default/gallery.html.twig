@@ -1,6 +1,9 @@
 {% extends "::base.html.twig" %}
 {% block title %}
-    Gallery - Legofy your images online
+    Gallery page {{ page }} - Legofy your images online
+{% endblock %}
+{% block description %}
+    Gallery page {{ page }} - Legofy your images online
 {% endblock %}
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('css/extra.css') }}">

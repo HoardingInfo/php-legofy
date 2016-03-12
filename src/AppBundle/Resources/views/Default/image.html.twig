@@ -1,6 +1,15 @@
 {% extends "::base.html.twig" %}
 {% block title %}
-    Gallery - Legofy your images online
+    {% if image.tags %}
+        {{ image.tags }} -
+    {% endif %}
+    Image - Legofy your images online
+{% endblock %}
+{% block description %}
+    {% if image.tags %}
+        {{ image.tags }} -
+    {% endif %}
+    Image - Legofy your images online - {{ image.name }}
 {% endblock %}
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('css/extra.css') }}">
@@ -27,7 +36,7 @@
                     <h2>{{ image.tags }}</h2>
                 {% endif %}
                 <a href="#" class="thumbnail">
-                    <img alt="100%x180" style="width: 100%; display: block;" src="/images/{{ image.name }}" data-holder-rendered="true">
+                    <img alt="{{ image.tags }}" title="{{ image.tags }}" style="width: 100%; display: block;" src="/images/{{ image.name }}" data-holder-rendered="true">
                 </a>
             </div>
         </div>
