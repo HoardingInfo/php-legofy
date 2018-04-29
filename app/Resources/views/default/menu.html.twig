@@ -3,9 +3,9 @@
         <h3 class="masthead-brand">Legofizer</h3>
         <nav>
             <ul class="nav masthead-nav">
-                <li {% if menuActive == 'home' %}class="active"{% endif %}><a href="{{ url('homepage') }}">Home</a></li>
-                <li {% if menuActive == 'gallery' %}class="active"{% endif %}><a href="{{ url('gallery') }}">Gallery</a></li>
-                <li {% if menuActive == 'videos' %}class="active"{% endif %}><a href="{{ url('videos-legofy') }}">Videos</a></li>
+                <li {% if menuActive == 'home' %}class="active"{% endif %}><a href="{{ path('homepage') }}">Home</a></li>
+                <li {% if menuActive == 'gallery' %}class="active"{% endif %}><a href="{{ path('gallery') }}">Gallery</a></li>
+                <li {% if menuActive == 'videos' %}class="active"{% endif %}><a href="{{ path('videos-legofy') }}">Videos</a></li>
             </ul>
         </nav>
     </div>
